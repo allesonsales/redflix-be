@@ -5,6 +5,7 @@ const conn = require("./db/conn");
 const authRoutes = require("./routes/AuthRoutes");
 const commentRoutes = require("./routes/CommentRoutes");
 const movieRoutes = require("./routes/MovieRoutes");
+const port = process.env.PORT || 3000;
 
 const app = express();
 
@@ -19,7 +20,7 @@ app.use("/movies", movieRoutes);
 conn
   .sync()
   .then(() => {
-    app.listen(3000);
+    app.listen(port);
     console.log("Servidor rodando");
   })
   .catch((err) => console.log(err));
