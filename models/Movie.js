@@ -2,6 +2,11 @@ const { DataTypes } = require("sequelize");
 const db = require("../db/conn");
 
 const Movie = db.define("movies", {
+  id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    allowNull: false,
+  },
   title: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -11,7 +16,7 @@ const Movie = db.define("movies", {
   },
   release_date: {
     type: DataTypes.DATE,
-    allowNull: false,
+    allowNull: true,
   },
   overview: {
     type: DataTypes.STRING,
@@ -19,11 +24,11 @@ const Movie = db.define("movies", {
   },
   genre_names: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   poster_path: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   trailer: {
     type: DataTypes.STRING,
