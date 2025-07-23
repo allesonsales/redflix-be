@@ -46,10 +46,10 @@ module.exports = class CommentController {
 
   static async getComments(req, res) {
     try {
-      const { movieId } = req.body;
+      const { movieId } = req.query;
       const comments = await Comment.findAll({
         where: { movieId: movieId },
-        include: [{ model: User, attributes: ["id", "username"] }],
+        include: [{ model: User, attributes: ["id", "username", "photo"] }],
         order: [["createdAt", "DESC"]],
       });
 
